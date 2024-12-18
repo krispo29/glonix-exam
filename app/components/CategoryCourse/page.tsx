@@ -40,7 +40,7 @@ const Card: React.FC<CardProps> = ({ title, image, description }) => {
 const CategoryCourse: React.FC<{ cards: CardProps[] }> = ({ cards }) => {
   return (
     <>
-      <div className="flex justify-between mt-4">
+      <div className="container mx-auto flex justify-between mt-4">
         <div className="flex items-center">
           <Image src={IconVideo} alt="icon" />
           <h1 className="font-bold">เลือกเรียนตามหัวข้อที่สนใจ</h1>

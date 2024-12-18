@@ -11,8 +11,9 @@ interface BlogCardProps {
 
 const Blog: React.FC<{ blogs: BlogCardProps[] }> = ({ blogs }) => {
   return (
-    <div className="py-10 px-5">
-      <div className="gap-6">
+    <div className="py-10 px-5 w-1/2">
+      <h2 className="text-2xl font-bold mb-6">บทความและข่าวสารล่าสุด</h2>
+      <div className="">
         {blogs.map((blog, index) => (
           <div
             key={index}

@@ -1,3 +1,43 @@
+export const ONLINE_COURSE_DATA = [
+  {
+    topic: "Business",
+    title: "ลงทุนหุ้นมั่นใจ ต้องเข้าใจปัจจัยพื้นฐาน",
+    description: "รู้และเข้าใจปัจจัยที่ส่งผลกระทบต่อราคาหุ้น",
+    author: "ณัฐกานต์ สิทธิชัยอนันต์",
+    jobPosition: "CEO Y.I.M Corporation",
+    imageAuthor: "/hero-section/avatar2.png",
+    backgroundColor: "#FCFF8BE5",
+  },
+  {
+    topic: "Data",
+    title: "Progressive Web Application",
+    description:
+      "การพัฒนา Application ด้วยคอนเซ็ปท์ Progressive Web Application (PWA)",
+    author: "ปัญจมพงศ์ เสริมสวัสดิ์ศรี",
+    jobPosition: "Google Developers",
+    imageAuthor: "/hero-section/avatar2.png",
+    backgroundColor: "#000D2EE5",
+  },
+  {
+    topic: "Science",
+    title: "React Hooks in Action",
+    description: "เรียนรู้การเขียน React Hooks แบบ Best Practice",
+    author: "วรัทธน์ วงศ์มณีกิจ",
+    jobPosition: "Co-Founder",
+    imageAuthor: "/hero-section/avatar2.png",
+    backgroundColor: "#95FFE5E5",
+  },
+  {
+    topic: "Tech",
+    title: "Generative AIand ChatGPT: Design Thinking Edition",
+    description: "ปลดล็อกขีดจำกัดการทำงานด้วยพลัง AI",
+    author: "ทัศน์พล รัชตะสัมฤทธิ์ ",
+    jobPosition: "Software Engineer",
+    imageAuthor: "/hero-section/avatar2.png",
+    backgroundColor: "#06002EB0",
+  },
+];
+
 export const CATEGORY_COURSE_DATA = [
   {
     title: "DATA",
@@ -80,29 +120,7 @@ export const HERO_SECTION_DATA = [
     imageAuthor: "/hero-section/avatar1.png",
   },
 ];
-export const ONLINE_COURSE_DATA = [
-  {
-    title: "Card 1",
-    description: "This is the first card in the carousel.",
-    image: "/image1.jpg",
-  },
-  {
-    title: "Card 2",
-    description: "This is the second card in the carousel.",
-    image: "/image2.jpg",
-  },
-  {
-    title: "Card 1",
-    description: "This is the first card in the carousel.",
-    image: "/image1.jpg",
-  },
-  {
-    title: "Card 2",
-    description: "This is the second card in the carousel.",
-    image: "/image2.jpg",
-  },
-];
-export const ARTICLES_DATA = [
+export const MAIN_BLOG_DATA = [
   {
     title: "กำไร/ขาดทุนของหุ้นในพอร์ตต้องดูอย่างไร?",
     category: "Business",
@@ -111,6 +129,16 @@ export const ARTICLES_DATA = [
     date: "29 กรกฎาคม 2023",
     views: "240",
   },
+  {
+    title: "Data Engineer คืออะไร?",
+    category: "Science",
+    description:
+      "Data Engineer คือคนที่ทำงาน กับหลากหลายเครื่องมือเพื่อรวบรวมข้อมูลจัดการข้อมูลและเปลี่ยนข้อมูลดิบ ให้พร้อมใช้งาน สำหรับทั้ง Data Scientist และ Data Analyst ",
+    date: "29 กรกฎาคม 2023",
+    views: "50",
+  },
+];
+export const BLOG_DATA = [
   {
     title: "สารแทนน้ำตาลไม่อันตราย",
     category: "Science",

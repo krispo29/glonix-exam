@@ -54,7 +54,7 @@ const MyCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
   };
 
   return (
-    <div className="relative mt-4 ">
+    <div className="container mx-auto relative mt-4 ">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <Image src={IconVideo} alt="icon" className="mr-2" />
@@ -67,7 +67,7 @@ const MyCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className={`flex-shrink-0 w-64 transition-transform duration-300 ${
+            className={`flex-shrink-0 w-80 transition-transform duration-300 ${
               index === currentIndex ? "scale-105" : "scale-100"
             }`}
           >

@@ -6,20 +6,81 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface CarouselCardProps {
   title: string;
   description: string;
-  image: string;
+  height: string;
+  width: string;
+  imageAuthor: string;
+  author: string;
+  jobPosition: string;
+  backgroundColor: string;
+  topic: string;
 }
 
-const CarouselCard: React.FC<CarouselCardProps> = ({
+const CarouselCard: React.FC<CarouselCardProps & { index: number }> = ({
   title,
   description,
-  image,
+  height,
+  width,
+  backgroundColor,
+  imageAuthor,
+  author,
+  jobPosition,
+  topic,
+  index,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden my-4">
-      <img src={image} alt={title} className="w-full h-96 object-cover" />
-      <div className="p-4">
-        <h3 className="text-lg font-medium">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+    <div
+      className="bg-white rounded-2xl shadow-md overflow-hidden my-4 p-4 h-full"
+      style={{
+        backgroundColor,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height,
+        width,
+      }}
+    >
+      <button className="btn btn-outline rounded-full text-gray-400">
+        {topic}
+      </button>
+      <div className="flex flex-col justify-between h-72 p-4">
+        <div className="flex-1">
+          <h2
+            className={`${
+              index % 2 === 0 ? "text-black" : "text-white"
+            } text-2xl font-bold mb-2`}
+          >
+            {title}
+          </h2>
+          <p
+            className={`${
+              index % 2 === 0 ? "text-black" : "text-white"
+            } text-lg`}
+          >
+            {description}
+          </p>
+        </div>
+        <div className="flex items-center  self-start">
+          <img
+            src={imageAuthor}
+            className="w-8 h-8 rounded-full mr-2"
+            alt={author}
+          />
+          <div>
+            <p
+              className={`${
+                index % 2 === 0 ? "text-black" : "text-white"
+              } text-sm`}
+            >
+              {author}
+            </p>
+            <p
+              className={`${
+                index % 2 === 0 ? "text-black" : "text-white"
+              } text-sm`}
+            >
+              {jobPosition}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -41,7 +102,7 @@ const OnlineCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
   };
 
   return (
-    <div className="relative mt-4 ">
+    <div className="container mx-auto relative mt-4 ">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <Image src={IconVideo} alt="icon" className="mr-2" />
@@ -50,7 +111,7 @@ const OnlineCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
 
         <button className="text-blue-500 hover:underline">ดูทั้งหมด</button>
       </div>
-      <div className="flex space-x-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide mt-4 justify-center">
+      <div className="flex space-x-4   snap-x snap-mandatory scrollbar-hide mt-4 justify-center">
         {cards.map((card, index) => (
           <div
             key={index}
@@ -58,7 +119,7 @@ const OnlineCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
               index === currentIndex ? "scale-105" : "scale-100"
             }`}
           >
-            <CarouselCard {...card} />
+            <CarouselCard {...card} index={index} />
           </div>
         ))}
       </div>
