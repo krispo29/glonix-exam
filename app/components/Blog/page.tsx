@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import IconVideo from "@/public/video-vertical.png";
+
 interface BlogCardProps {
   title: string;
   description: string;
@@ -15,13 +16,15 @@ const BlogCard: React.FC<BlogCardProps> = (blog) => {
   return (
     <div
       className={`${
-        blog.priority <= 2 ? "h-[18rem] mt-4" : "h-[10rem] mt-8 "
+        blog.priority <= 2 ? "h-[10rem] sm:h-[18rem] mt-4" : "h-[10rem] mt-8"
       } card card-side bg-base-100 shadow-md`}
     >
       <figure
         className={`${
-          blog.priority <= 2 ? "h-[18rem] w-[15rem]" : "w-[10rem] h-[10rem]"
-        }  flex items-center justify-center`}
+          blog.priority <= 2
+            ? "h-[10rem] sm:h-[18rem] w-[15rem]"
+            : "w-[10rem] h-[10rem]"
+        } flex items-center justify-center`}
       >
         <img
           className="object-cover w-full h-full"
@@ -30,8 +33,8 @@ const BlogCard: React.FC<BlogCardProps> = (blog) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{blog.title}</h2>
-        <p>
+        <h2 className="card-title text-xs md:text-xl">{blog.title}</h2>
+        <p className="text-xs md:text-lg">
           {blog.description.length > 90
             ? `${blog.description.slice(0, 90)}...`
             : blog.description}
@@ -62,13 +65,20 @@ const Blog: React.FC<{ blogs: BlogCardProps[] }> = ({ blogs }) => {
         </button>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="flex flex-col">
+        <div className="flex flex-row sm:flex-col">
           {priorityBlogs.map((blog, index) => (
-            <BlogCard key={`priority-${index}`} {...blog} />
+            <div
+              key={`priority-${index}`}
+              className={`${
+                blog.priority === 1 ? "hidden sm:block w-full" : "w-full"
+              }`}
+            >
+              <BlogCard {...blog} />
+            </div>
           ))}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col hidden sm:block">
           {normalBlogs.map((blog, index) => (
             <BlogCard key={`normal-${index}`} {...blog} />
           ))}
