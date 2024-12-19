@@ -29,7 +29,7 @@ const CarouselCard: React.FC<CarouselCardProps & { index: number }> = ({
 }) => {
   return (
     <div
-      className="bg-white rounded-2xl shadow-md overflow-hidden my-4 p-4 h-full"
+      className=" bg-white rounded-2xl shadow-md overflow-hidden my-4 p-4 h-full"
       style={{
         backgroundColor,
         backgroundSize: "cover",
@@ -102,7 +102,7 @@ const OnlineCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
   };
 
   return (
-    <div className="container mx-auto relative mt-4 ">
+    <div className="container mx-auto relative mt-8 ">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <Image src={IconVideo} alt="icon" className="mr-2" />
