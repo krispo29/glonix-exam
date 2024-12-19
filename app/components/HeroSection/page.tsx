@@ -27,8 +27,8 @@ const Card: React.FC<CardProps & { index: number }> = ({
         ${
           index === 0
             ? "md:h-[25rem] md:w-[25rem] h-[20rem] w-full"
-            : "md:h-[25rem] md:w-[8rem] h-[12rem] w-full"
-        }
+            : " w-[5rem] md:h-[25rem] md:w-[8rem] h-[20rem] w-full "
+        } ${index === 2 ? "hidden md:block" : ""}
         bg-white rounded-2xl shadow-md overflow-hidden my-2 md:my-4 p-2 md:p-4 transition-all
       `}
       style={{
@@ -38,13 +38,13 @@ const Card: React.FC<CardProps & { index: number }> = ({
       }}
     >
       <div className="flex flex-col justify-between h-full p-2 md:p-4">
-        <div className="flex-1">
+        <div>
           <h2
             className={`
               ${
                 index === 0
                   ? "text-xl md:text-2xl text-white"
-                  : "text-lg md:text-xl text-black  [writing-mode:vertical-lr] rotate-180 text-left "
+                  : "text-sm md:text-md text-black  [writing-mode:vertical-lr] rotate-180  "
               } 
               font-bold mb-2
             `}
@@ -55,7 +55,7 @@ const Card: React.FC<CardProps & { index: number }> = ({
             className={`
             text-base md:text-lg 
             ${index === 0 ? "text-white" : "text-black"}
-            ${index !== 0 ? "md:hidden" : ""}
+           
           `}
           >
             {description}
@@ -112,7 +112,7 @@ const HeroSection: React.FC<{ cards: CardProps[] }> = ({ cards }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-4 w-full">
+        <div className="flex flex-row gap-4 w-full">
           {cards.map((card, index) => (
             <Card {...card} index={index} key={card.title} />
           ))}
