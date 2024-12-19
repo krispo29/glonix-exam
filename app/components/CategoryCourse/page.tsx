@@ -31,8 +31,6 @@ const Card: React.FC<CardProps> = ({ title, image, description }) => {
           </button>
         </div>
       </div>
-
-      {/* Progress Bar ด้านล่าง */}
     </div>
   );
 };

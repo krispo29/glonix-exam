@@ -23,15 +23,11 @@ export default function Home() {
       <CategoryCourse cards={CATEGORY_COURSE_DATA} />
       <MyCourse cards={MY_COURSE_DATA} />
       <OnlineCourse cards={ONLINE_COURSE_DATA} />
-      <div className="flex flex-col lg:flex-row gap-6">
-        <div className="w-[30rem]lg:w-1/3">
-          <MainBlog blogs={MAIN_BLOG_DATA} />
-        </div>
 
-        <div className="w-full lg:w-1/3">
-          <Blog blogs={BLOG_DATA} />
-        </div>
-      </div>
+      {/* <MainBlog blogs={MAIN_BLOG_DATA} /> */}
+
+      <Blog blogs={BLOG_DATA} />
+
       <QuestionForm />
       <Footer />
     </>

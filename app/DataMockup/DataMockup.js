@@ -93,8 +93,6 @@ export const HERO_SECTION_DATA = [
     title: "Generative AI and ChatGPT:Design Thinking Edition",
     description: "ปลดล็อกขีดจำกัดการทำงานด้วยพลัง AI.",
     backgroundColor: "#002E2AE5",
-    height: "25rem",
-    width: "25rem",
     author: "ณัฐกานต์ สิทธิชัยอนันต์ ",
     jobPosition: "CEO Y.I.M Corporation",
     imageAuthor: "/hero-section/avatar2.png",
@@ -103,8 +101,6 @@ export const HERO_SECTION_DATA = [
     title: "Generative ChatGPT:UX Design Edition",
     description: "",
     backgroundColor: "#95FFE5E5",
-    height: "25rem",
-    width: "10rem",
     author: " ",
     jobPosition: "",
     imageAuthor: "/hero-section/avatar3.png",
@@ -113,8 +109,6 @@ export const HERO_SECTION_DATA = [
     title: "UX Accelerator Bundle",
     description: "",
     backgroundColor: "#FCFF8BE5",
-    height: "25rem",
-    width: "10rem",
     author: " ",
     jobPosition: "",
     imageAuthor: "/hero-section/avatar1.png",
@@ -140,12 +134,14 @@ export const MAIN_BLOG_DATA = [
 ];
 export const BLOG_DATA = [
   {
-    title: "สารแทนน้ำตาลไม่อันตราย",
-    category: "Science",
+    title: "กำไร/ขาดทุนของหุ้นในพอร์ตต้องดูอย่างไร?",
+    category: "Business",
     description:
-      "สารให้ความหวานมีความปลอดภัยแค่ไหนเมื่อใช้ในอาหาร? งานวิจัยชี้ให้เห็นถึงประโยชน์และความเสี่ยง...",
+      "เมื่อซื้อขายหุ้นแล้วสิ่งหนึ่งที่ขาดไม่ได้ คือการติดตามข้อมูลผลกำไร/ขาดทุนจากการลงทุนอย่างไรให้เหมาะสม?",
     date: "29 กรกฎาคม 2023",
-    views: "50",
+    views: "240",
+    priority: 1,
+    image: "/blog/Rectangle43.png",
   },
   {
     title: "Data Pipelines with Airflow",
@@ -154,6 +150,8 @@ export const BLOG_DATA = [
       "เรียนรู้การสร้าง End-to-End Data Pipelines โดยใช้ Apache Airflow ทำงานอย่างไรให้มีประสิทธิภาพ?",
     date: "29 กรกฎาคม 2023",
     views: "120",
+    priority: 2,
+    image: "/blog/Rectangle55.png",
   },
   {
     title: "ร่างกายสามารถชะลอวัย 'อายุชีวภาพ'",
@@ -162,5 +160,27 @@ export const BLOG_DATA = [
       "ความลับของการชะลอวัยด้วยการวิจัย ‘อายุชีวภาพ’ ศึกษาจากเซลล์ร่างกายเพื่อยืดอายุการทำงาน...",
     date: "29 กรกฎาคม 2023",
     views: "70",
+    priority: 3,
+    image: "/blog/Rectangle58.png",
+  },
+  {
+    title: "Data Engineer คืออะไร?",
+    category: "Science",
+    description:
+      "Data Engineer คือคนที่ทำงาน กับหลากหลายเครื่องมือเพื่อรวบรวมข้อมูลจัดการข้อมูลและเปลี่ยนข้อมูลดิบ ให้พร้อมใช้งาน สำหรับทั้ง Data Scientist และ Data Analyst ",
+    date: "29 กรกฎาคม 2023",
+    views: "50",
+    priority: 4,
+    image: "/blog/Rectangle59.png",
+  },
+  {
+    title: "สารแทนน้ำตาลไม่อันตราย",
+    category: "Science",
+    description:
+      "สารให้ความหวานมีความปลอดภัยแค่ไหนเมื่อใช้ในอาหาร? งานวิจัยชี้ให้เห็นถึงประโยชน์และความเสี่ยง...",
+    date: "29 กรกฎาคม 2023",
+    views: "50",
+    priority: 5,
+    image: "/blog/Rectangle60.png",
   },
 ];

@@ -10,8 +10,6 @@ interface CardProps {
   imageAuthor: string;
   backgroundColor: string;
   jobPosition: string;
-  height: string;
-  width: string;
 }
 const Card: React.FC<CardProps & { index: number }> = ({
   title,
@@ -20,26 +18,26 @@ const Card: React.FC<CardProps & { index: number }> = ({
   author,
   imageAuthor,
   backgroundColor,
-  height,
-  width,
   index,
 }) => {
   return (
     <div
-      className="bg-white rounded-2xl shadow-md overflow-hidden my-4 p-4"
+      className={`${
+        index === 0 ? "h-[25rem] w-[25rem]" : "h-[25rem] w-full md:w-[8rem]"
+      } bg-white rounded-2xl shadow-md overflow-hidden my-4 p-4`}
       style={{
         backgroundColor,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height,
-        width,
       }}
     >
       <div className="flex flex-col justify-between h-full p-4">
         <div className="flex-1">
           <h2
-            className={`text-2xl ${
-              index === 0 ? "text-white" : "text-black -rotate-90"
+            className={`text-2xl   ${
+              index === 0
+                ? "text-white "
+                : " text-left  mt-10 text-black -rotate-90"
             } font-bold mb-2`}
           >
             {title}

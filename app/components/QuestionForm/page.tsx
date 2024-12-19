@@ -2,13 +2,10 @@ import React from "react";
 
 const QuestionForm = () => {
   return (
-    <div className="p-6 border border-blue-400 rounded-lg">
-      {/* Header */}
+    <div className="container mx-auto my-8  p-6 border border-blue-400 rounded-lg">
       <h2 className="text-lg font-semibold mb-4">ตั้งกระทู้คำถาม</h2>
 
-      {/* Form */}
       <form>
-        {/* Title Field */}
         <div className="mb-4">
           <label className="block mb-1 font-medium" htmlFor="title">
             หัวข้อกระทู้
@@ -20,8 +17,6 @@ const QuestionForm = () => {
             className="input input-bordered w-full"
           />
         </div>
-
-        {/* Content Field */}
         <div className="mb-4">
           <label className="block mb-1 font-medium" htmlFor="content">
             เนื้อหา
@@ -33,8 +28,6 @@ const QuestionForm = () => {
             className="textarea textarea-bordered w-full"
           ></textarea>
         </div>
-
-        {/* Submit Button */}
         <div className="flex justify-end">
           <button
             type="submit"
