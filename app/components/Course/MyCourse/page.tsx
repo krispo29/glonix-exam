@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import IconVideo from "@/public/video-vertical.png";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
 interface CarouselCardProps {
   title: string;
   description: string;
@@ -17,19 +18,21 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
   process,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden my-8 relative">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden relative h-full">
       <img src={image} alt={title} className="w-full h-48 object-cover" />
 
-      <div className="absolute top-2 left-0 w-full h-full flex justify-items-start ">
-        <h3 className="text-white text-xl font-bold px-2 ">{title}</h3>
+      <div className="absolute top-2 left-0 w-full">
+        <h3 className="text-white text-xl font-bold px-2 line-clamp-2">
+          {title}
+        </h3>
       </div>
       <div className="p-4 bg-white">
-        <p className="text-gray-600">{description}</p>
+        <p className="text-gray-600 line-clamp-2">{description}</p>
       </div>
-      <div>
+      <div className="pb-4">
         <p className="mx-4">เรียนไปแล้ว {process}%</p>
         <progress
-          className="progress progress-success w-[90%] mx-4 mb-4"
+          className="progress progress-success w-[90%] mx-4"
           value={process}
           max="100"
         ></progress>
@@ -39,23 +42,31 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
 };
 
 const MyCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const cardsPerPage = {
+    mobile: 1,
+    tablet: 2,
+    desktop: 4,
+  };
+
+  const maxPages = Math.ceil(cards.length / cardsPerPage.desktop);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? cards.length - 1 : prevIndex - 1
-    );
+    setCurrentPage((prev) => (prev === 0 ? maxPages - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === cards.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentPage((prev) => (prev === maxPages - 1 ? 0 : prev + 1));
   };
 
+  const visibleCards = cards.slice(
+    currentPage * cardsPerPage.desktop,
+    (currentPage + 1) * cardsPerPage.desktop
+  );
+
   return (
-    <div className="container mx-auto relative mt-8 ">
-      <div className="flex items-center justify-between">
+    <div className="container mx-auto relative px-4 mt-8">
+      <div className="flex items-center justify-between mb-6">
         <div className="flex items-center">
           <Image src={IconVideo} alt="icon" className="mr-2" />
           <h1 className="text-lg font-semibold">คอร์สของฉัน</h1>
@@ -64,32 +75,31 @@ const MyCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
           ดูทั้งหมด
         </button>
       </div>
-      <div className="flex space-x-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide mt-4 justify-center">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className={`flex-shrink-0 w-80 transition-transform duration-300 ${
-              index === currentIndex ? "scale-105" : "scale-100"
-            }`}
-          >
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {visibleCards.map((card, index) => (
+          <div key={index} className="transition-all duration-300">
             <CarouselCard {...card} />
           </div>
         ))}
       </div>
-      <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4">
-        <button
-          onClick={handlePrev}
-          className="p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition-colors"
-        >
-          <ChevronLeft className="h-6 w-6 text-gray-600" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition-colors"
-        >
-          <ChevronRight className="h-6 w-6 text-gray-600" />
-        </button>
-      </div>
+
+      {cards.length > cardsPerPage.desktop && (
+        <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4 pointer-events-none">
+          <button
+            onClick={handlePrev}
+            className="p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition-colors pointer-events-auto"
+          >
+            <ChevronLeft className="h-6 w-6 text-gray-600" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition-colors pointer-events-auto"
+          >
+            <ChevronRight className="h-6 w-6 text-gray-600" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
