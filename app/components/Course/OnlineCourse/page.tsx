@@ -108,7 +108,7 @@ const OnlineCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
           <Image src={IconVideo} alt="icon" className="mr-2" />
           <h1 className="text-lg font-semibold">คอร์สออนไลน์</h1>
         </div>
-        <button className="btn btn-outline btn-success rounded-full">
+        <button className="hidden md:block btn btn-outline btn-success rounded-full">
           ดูทั้งหมด
         </button>
       </div>
@@ -136,6 +136,11 @@ const OnlineCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
           className="p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition-colors"
         >
           <ChevronRight className="h-6 w-6 text-gray-600" />
+        </button>
+      </div>
+      <div className="flex w-full mt-4">
+        <button className="btn btn-outline btn-success rounded-full mt-8 mx-auto w-2/3 md:hidden">
+          ดูทั้งหมด
         </button>
       </div>
     </div>

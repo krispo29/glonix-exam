@@ -4,12 +4,10 @@ const Footer = () => {
   return (
     <footer className="bg-teal-800 text-white py-8">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
-        {/* LOGO */}
         <div>
           <h2 className="text-2xl font-bold mb-4">LOGO</h2>
         </div>
 
-        {/* คอร์สของเรา */}
         <div>
           <h3 className="text-lg font-semibold mb-2">คอร์สของเรา</h3>
           <ul>
@@ -20,7 +18,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* เกี่ยวกับเรา */}
         <div>
           <h3 className="text-lg font-semibold mb-2">เกี่ยวกับเรา</h3>
           <ul>
@@ -31,7 +28,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* ความปลอดภัย */}
         <div>
           <h3 className="text-lg font-semibold mb-2">ความปลอดภัย</h3>
           <ul>
@@ -44,7 +40,6 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto mt-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Contact and Description */}
         <div>
           <p className="font-semibold">
             Lorem Ipsum is simply dummy text of the printing.
@@ -70,7 +65,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="text-sm text-gray-300">
           <p>Y.I.M Corporation © 2023. All rights reserved.</p>
           <p>0-3835-4580-4 , 0-3835-2611-6</p>

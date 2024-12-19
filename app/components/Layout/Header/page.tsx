@@ -43,7 +43,6 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Hamburger Menu */}
             <div className="flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +77,6 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Desktop Links */}
             <div className="hidden md:flex md:items-center">
               <button className="btn btn-active btn-ghost mr-2 rounded-xl">
                 ออกจากระบบ
@@ -119,7 +117,7 @@ const Navbar = () => {
           <div className="flex flex-col items-center justify-center h-full space-y-6 pt-20">
             <Link href="/">
               <span
-                className="text-white hover:text-blue-300 text-xl"
+                className="text-white hover:text-blue-300 text-xl hover:underline"
                 onClick={() => setIsOpen(false)}
               >
                 รายวิชา
@@ -127,7 +125,7 @@ const Navbar = () => {
             </Link>
             <Link href="/">
               <span
-                className="text-white hover:text-blue-300 text-xl"
+                className="text-white hover:text-blue-300 text-xl hover:underline"
                 onClick={() => setIsOpen(false)}
               >
                 ถ่ายทอดสด
@@ -135,7 +133,7 @@ const Navbar = () => {
             </Link>
             <Link href="/">
               <span
-                className="text-white hover:text-blue-300 text-xl"
+                className="text-white hover:text-blue-300 text-xl hover:underline"
                 onClick={() => setIsOpen(false)}
               >
                 กะทู้คำถาม
@@ -147,7 +145,7 @@ const Navbar = () => {
               <ChevronDown />
             </button>
             <button
-              className="btn btn-active rounded-xl w-[15rem] text-black "
+              className="btn btn-active rounded-xl w-[15rem] text-black"
               onClick={() => setIsOpen(false)}
             >
               ออกจากระบบ
@@ -158,39 +156,5 @@ const Navbar = () => {
     </>
   );
 };
-
-{
-  /* <div className="navbar bg-base-100">
-        <div className="flex-1">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
-        </div>
-        <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>รายวิชา</a>
-            </li>
-            <li>
-              <a>ถ่ายทอดสด</a>
-            </li>
-            <li>
-              <a>กะทู้คำถาม</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="bg-base-100 rounded-t-none p-2">
-                  <li>
-                    <a>Link 1</a>
-                  </li>
-                  <li>
-                    <a>Link 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-          </ul>
-        </div>
-      </div> */
-}
 
 export default Navbar;

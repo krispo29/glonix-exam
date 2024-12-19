@@ -60,7 +60,7 @@ const Blog: React.FC<{ blogs: BlogCardProps[] }> = ({ blogs }) => {
           <h1 className="text-lg font-semibold">บทความล่าสุด</h1>
         </div>
 
-        <button className="btn btn-outline btn-success rounded-full">
+        <button className="hidden md:block btn btn-outline btn-success rounded-full">
           ดูทั้งหมด
         </button>
       </div>
@@ -83,6 +83,11 @@ const Blog: React.FC<{ blogs: BlogCardProps[] }> = ({ blogs }) => {
             <BlogCard key={`normal-${index}`} {...blog} />
           ))}
         </div>
+      </div>
+      <div className="flex w-full">
+        <button className="btn btn-outline btn-success rounded-full mt-8 mx-auto w-2/3 md:hidden">
+          ดูทั้งหมด
+        </button>
       </div>
     </div>
   );
