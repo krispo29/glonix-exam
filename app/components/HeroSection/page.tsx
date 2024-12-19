@@ -44,7 +44,7 @@ const Card: React.FC<CardProps & { index: number }> = ({
               ${
                 index === 0
                   ? "text-xl md:text-2xl text-white"
-                  : "text-lg md:text-xl text-black rotate-90 md:mt-10 text-left "
+                  : "text-lg md:text-xl text-black  [writing-mode:vertical-lr] rotate-180 text-left "
               } 
               font-bold mb-2
             `}
@@ -64,7 +64,7 @@ const Card: React.FC<CardProps & { index: number }> = ({
         <div
           className={`
           flex items-center mt-2 md:mt-4 self-start
-          ${index !== 0 ? "md:hidden" : ""}
+          
         `}
         >
           <img
