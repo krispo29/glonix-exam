@@ -54,14 +54,15 @@ const MyCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
   };
 
   return (
-    <div className="container mx-auto relative mt-4 ">
+    <div className="container mx-auto relative mt-8 ">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <Image src={IconVideo} alt="icon" className="mr-2" />
           <h1 className="text-lg font-semibold">คอร์สของฉัน</h1>
         </div>
-
-        <button className="text-blue-500 hover:underline">ดูทั้งหมด</button>
+        <button className="btn btn-outline btn-success rounded-full">
+          ดูทั้งหมด
+        </button>
       </div>
       <div className="flex space-x-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide mt-4 justify-center">
         {cards.map((card, index) => (

@@ -57,7 +57,9 @@ const Blog: React.FC<{ blogs: BlogCardProps[] }> = ({ blogs }) => {
           <h1 className="text-lg font-semibold">คอร์สออนไลน์</h1>
         </div>
 
-        <button className="text-blue-500 hover:underline">ดูทั้งหมด</button>
+        <button className="btn btn-outline btn-success rounded-full">
+          ดูทั้งหมด
+        </button>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="flex flex-col">

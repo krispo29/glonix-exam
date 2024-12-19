@@ -108,8 +108,9 @@ const OnlineCourse: React.FC<{ cards: CarouselCardProps[] }> = ({ cards }) => {
           <Image src={IconVideo} alt="icon" className="mr-2" />
           <h1 className="text-lg font-semibold">คอร์สออนไลน์</h1>
         </div>
-
-        <button className="text-blue-500 hover:underline">ดูทั้งหมด</button>
+        <button className="btn btn-outline btn-success rounded-full">
+          ดูทั้งหมด
+        </button>
       </div>
       <div className="flex space-x-4   snap-x snap-mandatory scrollbar-hide mt-4 justify-center">
         {cards.map((card, index) => (
