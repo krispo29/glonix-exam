@@ -11,6 +11,7 @@ interface CardProps {
   backgroundColor: string;
   jobPosition: string;
 }
+
 const Card: React.FC<CardProps & { index: number }> = ({
   title,
   description,
@@ -22,39 +23,58 @@ const Card: React.FC<CardProps & { index: number }> = ({
 }) => {
   return (
     <div
-      className={`${
-        index === 0 ? "h-[25rem] w-[25rem]" : "h-[25rem] w-full md:w-[8rem]"
-      } bg-white rounded-2xl shadow-md overflow-hidden my-4 p-4`}
+      className={`
+        ${
+          index === 0
+            ? "md:h-[25rem] md:w-[25rem] h-[20rem] w-full"
+            : "md:h-[25rem] md:w-[8rem] h-[12rem] w-full"
+        }
+        bg-white rounded-2xl shadow-md overflow-hidden my-2 md:my-4 p-2 md:p-4 transition-all
+      `}
       style={{
         backgroundColor,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="flex flex-col justify-between h-full p-4">
+      <div className="flex flex-col justify-between h-full p-2 md:p-4">
         <div className="flex-1">
           <h2
-            className={`text-2xl   ${
-              index === 0
-                ? "text-white "
-                : " text-left  mt-10 text-black -rotate-90"
-            } font-bold mb-2`}
+            className={`
+              ${
+                index === 0
+                  ? "text-xl md:text-2xl text-white"
+                  : "text-lg md:text-xl text-black rotate-90 md:mt-10 text-left "
+              } 
+              font-bold mb-2
+            `}
           >
             {title}
           </h2>
-          <p className={`text-lg ${index === 0 ? "text-white" : "text-black"}`}>
+          <p
+            className={`
+            text-base md:text-lg 
+            ${index === 0 ? "text-white" : "text-black"}
+            ${index !== 0 ? "md:hidden" : ""}
+          `}
+          >
             {description}
           </p>
         </div>
-        <div className="flex items-center mt-4 self-start">
+        <div
+          className={`
+          flex items-center mt-2 md:mt-4 self-start
+          ${index !== 0 ? "md:hidden" : ""}
+        `}
+        >
           <img
             src={imageAuthor}
-            className="w-8 h-8 rounded-full mr-2"
+            className="w-6 h-6 md:w-8 md:h-8 rounded-full mr-2"
             alt={author}
           />
           <div>
-            <p className="text-sm text-white">{author}</p>
-            <p className="text-sm text-white">{jobPosition}</p>
+            <p className="text-xs md:text-sm text-white">{author}</p>
+            <p className="text-xs md:text-sm text-white">{jobPosition}</p>
           </div>
         </div>
       </div>
@@ -63,34 +83,40 @@ const Card: React.FC<CardProps & { index: number }> = ({
 };
 
 const HeroSection: React.FC<{ cards: CardProps[] }> = ({ cards }) => {
-  console.dir(cards, null);
   return (
-    <div className="hero  min-h-56 mt-10">
-      <div className="hero-content flex-row ">
-        <div>
-          <p className="text-[#00665E] font-semibold">
-            Lorem Ipsum is simply dummy .
+    <div className="hero min-h-56 mt-4 md:mt-10 px-4 md:px-6">
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-6 hero-content">
+        <div className="w-full">
+          <p className="text-[#00665E] font-semibold text-sm md:text-base">
+            Lorem Ipsum is simply dummy .
           </p>
-          <h1 className="text-5xl font-bold">
-            <Image src={HeroLorem} alt="loremHero" />
+          <h1 className="text-3xl md:text-5xl font-bold">
+            <Image
+              src={HeroLorem}
+              alt="loremHero"
+              priority
+              className="w-full"
+            />
           </h1>
-          <div className="py-6">
+          <div className="py-4 md:py-6">
             <div className="flex items-center border border-gray-300 rounded-lg px-2 py-1">
               <Search className="text-gray-400 mr-2" size={20} />
               <input
                 type="text"
-                className="flex-grow outline-none"
+                className="flex-grow outline-none text-sm md:text-base"
                 placeholder="ค้นหาหลักสูตร"
               />
-              <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+              <button className="bg-green-500 text-white px-3 py-1 md:px-4 md:py-2 text-sm md:text-base rounded-lg hover:bg-green-600 transition">
                 ค้นหา
               </button>
             </div>
           </div>
         </div>
-        {cards.map((card, index) => (
-          <Card {...card} index={index} key={card.title} />
-        ))}
+        <div className="flex flex-col md:flex-row gap-4 w-full">
+          {cards.map((card, index) => (
+            <Card {...card} index={index} key={card.title} />
+          ))}
+        </div>
       </div>
     </div>
   );

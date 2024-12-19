@@ -4,6 +4,7 @@ import { useState } from "react";
 import Logo from "@/public/LOGO.png";
 import Avatar from "@/public/Ellipse 1.png";
 import Image from "next/image";
+import { ChevronDown, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,19 +12,19 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-white shadow-md sticky top-0 z-50">
-        <div className="w-full  px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center justify-between">
               {/* Logo */}
               <div>
                 <Link href="/">
-                  <span className="text-2xl font-bold text-blue-600">
+                  <span className=" text-2xl font-bold text-blue-600">
                     <Image src={Logo} alt="logo" width={80} height={80} />
                   </span>
                 </Link>
               </div>
 
-              <div className="flex space-x-4 px-8">
+              <div className="hidden md:flex space-x-4 px-8">
                 <Link href="/">
                   <span className="text-slate-400 hover:text-blue-600">
                     รายวิชา
@@ -41,6 +42,7 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
+
             {/* Hamburger Menu */}
             <div className="flex md:hidden">
               <button
@@ -76,23 +78,89 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Links */}
-            <div
-              className={`${
-                isOpen ? "block" : "hidden"
-              } md:block md:ml-4 md:flex md:items-center`}
-            >
-              <button className="btn btn-active btn-ghost ">ออกจากระบบ</button>
-              <button className="btn btn-active btn-neutral ">
-                Siriwat Rachanon
-                <Image src={Avatar} alt="avatar" />
+            {/* Desktop Links */}
+            <div className="hidden md:flex md:items-center">
+              <button className="btn btn-active btn-ghost mr-2 rounded-xl">
+                ออกจากระบบ
+              </button>
+              <button className="btn btn-active btn-neutral rounded-xl flex items-center space-x-2">
+                <Image src={Avatar} alt="avatar" width={32} height={32} />
+                <span>Siriwat Rachanon</span>
+
+                <ChevronDown />
               </button>
             </div>
           </div>
         </div>
-      </nav>
 
-      {/* <div className="navbar bg-base-100">
+        {/* Mobile Menu */}
+        <div
+          className={`${
+            isOpen ? "fixed inset-0 bg-[#01665e] z-40" : "hidden"
+          } md:hidden`}
+        >
+          {/* Logo Bar */}
+          <div className="absolute top-0 left-0 w-full bg-[#01665e] flex items-center justify-between px-4 py-4">
+            <Link href="/">
+              <span className="text-2xl font-bold text-white">
+                <Image src={Logo} alt="logo" width={80} height={80} />
+              </span>
+            </Link>
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-white hover:text-gray-200"
+            >
+              <X />
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <div className="flex flex-col items-center justify-center h-full space-y-6 pt-20">
+            <Link href="/">
+              <span
+                className="text-white hover:text-blue-300 text-xl"
+                onClick={() => setIsOpen(false)}
+              >
+                รายวิชา
+              </span>
+            </Link>
+            <Link href="/">
+              <span
+                className="text-white hover:text-blue-300 text-xl"
+                onClick={() => setIsOpen(false)}
+              >
+                ถ่ายทอดสด
+              </span>
+            </Link>
+            <Link href="/">
+              <span
+                className="text-white hover:text-blue-300 text-xl"
+                onClick={() => setIsOpen(false)}
+              >
+                กะทู้คำถาม
+              </span>
+            </Link>
+            <button className="btn btn-active btn-neutral rounded-xl w-[15rem]">
+              <Image src={Avatar} alt="avatar" width={32} height={32} />
+              <span>Siriwat Rachanon</span>
+              <ChevronDown />
+            </button>
+            <button
+              className="btn btn-active rounded-xl w-[15rem] text-black "
+              onClick={() => setIsOpen(false)}
+            >
+              ออกจากระบบ
+            </button>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+{
+  /* <div className="navbar bg-base-100">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">daisyUI</a>
         </div>
@@ -122,9 +190,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-      </div> */}
-    </>
-  );
-};
+      </div> */
+}
 
 export default Navbar;
