@@ -18,21 +18,24 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
   process,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden relative h-full">
-      <img src={image} alt={title} className="w-full h-48 object-cover" />
-
-      <div className="absolute top-2 left-0 w-full">
-        <h3 className="text-white text-xl font-bold px-2 line-clamp-2">
-          {title}
-        </h3>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden relative h-full flex flex-col">
+      <div className="relative">
+        <img src={image} alt={title} className="w-full h-48 object-cover" />
+        <div className="absolute top-2 left-0 w-full">
+          <h3 className="text-white text-xl font-bold px-2 line-clamp-2">
+            {title}
+          </h3>
+        </div>
       </div>
-      <div className="p-4 bg-white">
+
+      <div className="p-4 bg-white flex-grow">
         <p className="text-gray-600 line-clamp-2">{description}</p>
       </div>
-      <div className="pb-4">
-        <p className="mx-4">เรียนไปแล้ว {process}%</p>
+
+      <div className="mt-auto p-4 pt-0">
+        <p className="mb-2">เรียนไปแล้ว {process}%</p>
         <progress
-          className="progress progress-success w-[90%] mx-4"
+          className="progress progress-success w-full"
           value={process}
           max="100"
         ></progress>
