@@ -16,7 +16,7 @@ const BlogCard: React.FC<BlogCardProps> = (blog) => {
     <div
       className={`${
         blog.priority <= 2 ? "h-[18rem] mt-4" : "h-[10rem] mt-8 "
-      } card card-side bg-base-100 shadow-xl`}
+      } card card-side bg-base-100 shadow-md`}
     >
       <figure
         className={`${
@@ -50,11 +50,11 @@ const Blog: React.FC<{ blogs: BlogCardProps[] }> = ({ blogs }) => {
   const normalBlogs = blogs.filter((blog) => blog.priority > 2);
 
   return (
-    <div className="container mt-8 py-10 mx-auto">
+    <div className="container my-8 py-10 mx-auto">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <Image src={IconVideo} alt="icon" className="mr-2" />
-          <h1 className="text-lg font-semibold">คอร์สออนไลน์</h1>
+          <h1 className="text-lg font-semibold">บทความล่าสุด</h1>
         </div>
 
         <button className="btn btn-outline btn-success rounded-full">
