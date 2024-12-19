@@ -11,7 +11,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, image, description }) => {
   return (
-    <div className="bg-base-100 shadow-xl">
+    <div className="bg-base-100 shadow-xl rounded-xl">
       <div className="p-6">
         <div className="flex items-center">
           <Image
